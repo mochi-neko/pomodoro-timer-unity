@@ -4,37 +4,37 @@ namespace Mochineko.Pomodoro
 {
 	public class Timer : IDisposable
 	{
-		private readonly TimeSpan duration;
+		private readonly TimeSpan span;
 		private readonly System.Diagnostics.Stopwatch stopwatch;
 
 		private readonly TimeSpan OneSecond
 			= new TimeSpan(hours: 0, minutes: 0, seconds: 1);
 
-		public Timer(TimeSpan duration)
+		public Timer(TimeSpan span)
 		{
-			this.duration = duration;
+			this.span = span;
 			this.stopwatch = new System.Diagnostics.Stopwatch();
 
 			stopwatch.Start();
 		}
 
-		public TimeSpan Elapsed
+		private TimeSpan Elapsed
 			=> stopwatch.Elapsed;
 
-		public TimeSpan Remaining
-			=> duration.Subtract(Elapsed);
+		private TimeSpan Remaining
+			=> span.Subtract(Elapsed);
 
 		public TimeSpan RemainingRoundedUp
-			=> duration
+			=> span
 				.Subtract(Elapsed)
 				.Add(OneSecond);
 
 		public bool IsOver
-			=> Remaining.TotalMilliseconds <= 0;
+			=> Remaining.Ticks < 0;
 
 		public void Dispose()
 		{
-			stopwatch.Stop();
+			stopwatch.Reset();
 		}
 	}
 }
