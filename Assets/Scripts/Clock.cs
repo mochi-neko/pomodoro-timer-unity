@@ -8,11 +8,19 @@ namespace Mochineko.Pomodoro
 	public class Clock : MonoBehaviour
 	{
 		[SerializeField]
-		private Text text;
+		private Text date;
+		[SerializeField]
+		private Text time;
+
+		private const string dateFormat = "yyyy/MM/dd";
+		private const string timeFormat = "HH:mm:ss";
 
 		private void Update()
 		{
-			text.text = System.DateTime.Now.ToString();
+			var now = System.DateTime.Now;
+
+			date.text = now.ToString(dateFormat);
+			time.text = now.ToString(timeFormat);
 		}
 
 	}
