@@ -664,6 +664,7 @@ GameObject:
   - component: {fileID: 7704305777166802193}
   - component: {fileID: 8119180040890606806}
   - component: {fileID: 6850491279085667406}
+  - component: {fileID: 4181808213676739242}
   m_Layer: 0
   m_Name: PomodoroTimer
   m_TagString: Untagged
@@ -720,6 +721,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 4181808213676739242}
+        m_MethodName: Activate
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   onBeginRest:
@@ -732,6 +744,38 @@ MonoBehaviour:
           m_ObjectArgument: {fileID: 8300000, guid: a437370292ce8e64ba526b2da051769c,
             type: 3}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 4181808213676739242}
+        m_MethodName: Deactivate
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  onStart:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  onStop:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4181808213676739242}
+        m_MethodName: Default
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -753,6 +797,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   date: {fileID: 7154149172336092653}
   time: {fileID: 8096917634111491803}
+--- !u!114 &4181808213676739242
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7704305777166802195}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b00b2e55b3963fe42a23a873d090f88c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 7704305777873574084}
+  defaultColor: {r: 0, g: 0, b: 0, a: 1}
+  deactiveColor: {r: 0.39215687, g: 0.39215687, b: 1, a: 1}
+  activeColor: {r: 1, g: 0.39215687, b: 0.39215687, a: 1}
 --- !u!1 &7704305777491976136
 GameObject:
   m_ObjectHideFlags: 0

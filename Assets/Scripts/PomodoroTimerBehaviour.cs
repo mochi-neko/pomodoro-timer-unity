@@ -15,6 +15,9 @@ namespace Mochineko.Pomodoro
 		public UnityEvent onBeginTask = new UnityEvent();
 		public UnityEvent onBeginRest = new UnityEvent();
 
+		public UnityEvent onStart = new UnityEvent();
+		public UnityEvent onStop = new UnityEvent();
+
 		private PomodoroTimer timer;
 
 		private readonly TimeSpan taskSpan 
@@ -37,6 +40,8 @@ namespace Mochineko.Pomodoro
 			timer.OnBeginRest.Add(InvokeOnBeginRest);
 
 			InvokeOnBeginTask();
+
+			onStart?.Invoke();
 		}
 
 		private void InvokeOnBeginTask()
@@ -56,6 +61,8 @@ namespace Mochineko.Pomodoro
 			timer = null;
 
 			DisplayTaskTimeText();
+
+			onStop?.Invoke();
 		}
 
 		private void DisplayTaskTimeText()
