@@ -386,5 +386,20 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 8119180040890606806, guid: c155fb4fd549f854592329870caf7cc6,
+        type: 3}
+      propertyPath: onBeginTask.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8119180040890606806, guid: c155fb4fd549f854592329870caf7cc6,
+        type: 3}
+      propertyPath: onBeginTask.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8119180040890606806, guid: c155fb4fd549f854592329870caf7cc6,
+        type: 3}
+      propertyPath: onBeginTask.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c155fb4fd549f854592329870caf7cc6, type: 3}
