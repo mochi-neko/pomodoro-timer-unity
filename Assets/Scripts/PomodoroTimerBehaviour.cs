@@ -10,6 +10,10 @@ namespace Mochineko.Pomodoro
 	public class PomodoroTimerBehaviour : MonoBehaviour
 	{
 		[SerializeField]
+		private int taskMinutes = 25;
+		[SerializeField]
+		private int restMinutes = 5;
+		[SerializeField]
 		private Text timeText;
 
 		public UnityEvent onBeginTask = new UnityEvent();
@@ -20,10 +24,10 @@ namespace Mochineko.Pomodoro
 
 		private PomodoroTimer timer;
 
-		private readonly TimeSpan taskSpan 
-			= new TimeSpan(hours: 0, minutes: 0, seconds: 10);
-		private readonly TimeSpan restSpan
-			= new TimeSpan(hours: 0, minutes: 0, seconds: 5);
+		private TimeSpan TaskSpan 
+			=> new TimeSpan(hours: 0, minutes: taskMinutes, seconds: 0);
+		private TimeSpan RestSpan
+			=> new TimeSpan(hours: 0, minutes: restMinutes, seconds: 0);
 
 		private const string timeFormat = @"hh\:mm\:ss";
 
@@ -34,7 +38,7 @@ namespace Mochineko.Pomodoro
 				timer.Dispose();
 			}
 
-			timer = new PomodoroTimer(taskSpan, restSpan);
+			timer = new PomodoroTimer(TaskSpan, RestSpan);
 
 			timer.OnBeginTask.Add(InvokeOnBeginTask);
 			timer.OnBeginRest.Add(InvokeOnBeginRest);
@@ -67,7 +71,7 @@ namespace Mochineko.Pomodoro
 
 		private void DisplayTaskTimeText()
 		{
-			timeText.text = taskSpan.ToString(timeFormat);
+			timeText.text = TaskSpan.ToString(timeFormat);
 		}
 
 		private void Start()
