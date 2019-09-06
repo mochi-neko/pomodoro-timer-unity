@@ -19,8 +19,15 @@ namespace Mochineko.Pomodoro
 		{
 			var now = System.DateTime.Now;
 
-			date.text = now.ToString(dateFormat);
-			time.text = now.ToString(timeFormat);
+			if (date != null)
+			{
+				date.text = now.ToString(dateFormat);
+			}
+
+			if (time != null)
+			{
+				time.text = now.ToString(timeFormat);
+			}
 		}
 
 	}

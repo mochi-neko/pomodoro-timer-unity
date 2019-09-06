@@ -12,6 +12,9 @@ namespace Mochineko.Pomodoro
 		private Timer timer;
 		private bool isTasking;
 
+		public Event OnBeginTask { get; } = new Event();
+		public Event OnBeginRest { get; } = new Event();
+
 		public PomodoroTimer(TimeSpan taskSpan, TimeSpan restSpan)
 		{
 			this.taskSpan = taskSpan;
@@ -36,10 +39,14 @@ namespace Mochineko.Pomodoro
 			if (isTasking)
 			{
 				timer = new Timer(taskSpan);
+
+				OnBeginTask?.Invoke();
 			}
 			else
 			{
 				timer = new Timer(restSpan);
+
+				OnBeginRest?.Invoke();
 			}
 		}
 		
