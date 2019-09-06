@@ -29,7 +29,7 @@ namespace Mochineko.Pomodoro
 		private TimeSpan RestSpan
 			=> new TimeSpan(hours: 0, minutes: restMinutes, seconds: 0);
 
-		private const string timeFormat = @"hh\:mm\:ss";
+		private const string timeFormat = @"mm\:ss";
 
 		public void StartPomodoro()
 		{
