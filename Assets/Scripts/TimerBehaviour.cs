@@ -24,7 +24,23 @@ namespace Mochineko.Pomodoro
 
 		private Timer timer = null;
 
-		private const string timeFormat = @"hh\:mm\:ss";
+		private const string timeFormat = @"mm\:ss";
+
+		public void Append(int minutes)
+		{
+			spanMinutes += minutes;
+
+			if (spanMinutes < 1)
+			{
+				spanMinutes = 1;
+			}
+			else if (spanMinutes > 60)
+			{
+				spanMinutes = 60;
+			}
+
+			DisplaySpanMinutes();
+		}
 
 		[ContextMenu(nameof(Switch))]
 		public void Switch()
