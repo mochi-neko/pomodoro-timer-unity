@@ -511,16 +511,6 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 8119180040890606806, guid: c155fb4fd549f854592329870caf7cc6,
-        type: 3}
-      propertyPath: taskMinutes
-      value: 25
-      objectReference: {fileID: 0}
-    - target: {fileID: 8119180040890606806, guid: c155fb4fd549f854592329870caf7cc6,
-        type: 3}
-      propertyPath: restMinutes
-      value: 5
-      objectReference: {fileID: 0}
     - target: {fileID: 1162178468, guid: c155fb4fd549f854592329870caf7cc6, type: 3}
       propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
