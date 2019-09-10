@@ -14,6 +14,8 @@ namespace Mochineko.Pomodoro
 		[SerializeField]
 		private int restMinutes = 5;
 		[SerializeField]
+		private int longRestMinutes = 15;
+		[SerializeField]
 		private Text timeText;
 
 		public UnityEvent onBeginTask = new UnityEvent();
@@ -24,10 +26,12 @@ namespace Mochineko.Pomodoro
 
 		private PomodoroTimer timer;
 
-		private TimeSpan TaskSpan 
+		private TimeSpan TaskSpan
 			=> new TimeSpan(hours: 0, minutes: taskMinutes, seconds: 0);
 		private TimeSpan RestSpan
 			=> new TimeSpan(hours: 0, minutes: restMinutes, seconds: 0);
+		private TimeSpan LongRestSpan
+			=> new TimeSpan(hours: 0, minutes: longRestMinutes, seconds: 0);
 
 		private const string timeFormat = @"mm\:ss";
 
@@ -38,7 +42,7 @@ namespace Mochineko.Pomodoro
 				timer.Dispose();
 			}
 
-			timer = new PomodoroTimer(TaskSpan, RestSpan);
+			timer = new PomodoroTimer(TaskSpan, RestSpan);//, LongRestSpan);
 
 			timer.OnBeginTask.Add(InvokeOnBeginTask);
 			timer.OnBeginRest.Add(InvokeOnBeginRest);
