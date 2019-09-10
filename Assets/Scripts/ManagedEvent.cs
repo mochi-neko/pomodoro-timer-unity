@@ -3,7 +3,7 @@ using System;
 
 namespace Mochineko.Pomodoro
 {
-	public class Event : IDisposable
+	public class ManagedEvent : IDisposable
 	{
 		private HashSet<Action> caches = new HashSet<Action>();
 
@@ -31,7 +31,7 @@ namespace Mochineko.Pomodoro
 		}
 	}
 
-	public class Event<T> : IDisposable
+	public class ManagedEvent<T> : IDisposable
 	{
 		private HashSet<Action<T>> caches = new HashSet<Action<T>>();
 

@@ -17,8 +17,8 @@ namespace Mochineko.Pomodoro
 
 		//private readonly int longRestInterval;
 
-		public Event OnBeginTask { get; } = new Event();
-		public Event OnBeginRest { get; } = new Event();
+		public ManagedEvent OnBeginTask { get; } = new ManagedEvent();
+		public ManagedEvent OnBeginRest { get; } = new ManagedEvent();
 		//public Event OnBeginLongRest { get; } = new Event();
 
 		public PomodoroTimer(TimeSpan taskSpan, TimeSpan restSpan)//, TimeSpan longRestSpan, int longRestInterval = 3)

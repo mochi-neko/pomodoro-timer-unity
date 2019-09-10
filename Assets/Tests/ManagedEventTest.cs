@@ -4,21 +4,21 @@ using NUnit.Framework;
 
 namespace Mochineko.Pomodoro.Tests
 {
-	[TestFixture(TestOf = typeof(Event))]
-	public class EventTest
+	[TestFixture(TestOf = typeof(ManagedEvent))]
+	public class ManagedEventTest
 	{
 		[Test]
 		public void InvokeTest()
 		{
-			using (var @event = new Event())
+			using (var managedEvent = new ManagedEvent())
 			{
 				var flag = false;
 
-				@event.Add(() => flag = true);
+				managedEvent.Add(() => flag = true);
 
 				Assert.IsFalse(flag);
 
-				@event.Invoke();
+				managedEvent.Invoke();
 
 				Assert.IsTrue(flag);
 			}
@@ -27,23 +27,25 @@ namespace Mochineko.Pomodoro.Tests
 		[Test]
 		public void DeallocationTest()
 		{
-			var @event = new Event();
+			var managedEvent = new ManagedEvent();
 
 			var counter = 0;
 
-			@event.Add(() => counter++);
+			managedEvent.Add(() => counter++);
 
 			Assert.AreEqual(0, counter);
 
-			@event.Invoke();
+			managedEvent.Invoke();
 
 			Assert.AreEqual(1, counter);
 
-			@event.Dispose();
+			managedEvent.Dispose();
 
-			@event.Invoke();
+			managedEvent.Invoke();
 
 			Assert.AreNotEqual(2, counter);
+
+			managedEvent.Dispose();
 		}
 	}
 }
