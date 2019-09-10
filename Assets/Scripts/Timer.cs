@@ -12,6 +12,11 @@ namespace Mochineko.Pomodoro
 
 		public Timer(TimeSpan span)
 		{
+			if (span.Ticks <= 0)
+			{
+				throw new ArgumentOutOfRangeException(nameof(span));
+			}
+
 			this.span = span;
 			this.stopwatch = new System.Diagnostics.Stopwatch();
 
