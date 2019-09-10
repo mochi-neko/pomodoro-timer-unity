@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Events;
 
 namespace Mochineko.Pomodoro
 {
@@ -21,6 +22,10 @@ namespace Mochineko.Pomodoro
 			=> remaiginTime.text = SpanMinutes.ToString(timeFormat);
 		[SerializeField]
 		private Text switchText;
+
+		public UnityEvent onStarted = new UnityEvent();
+		public UnityEvent onFinished = new UnityEvent();
+		public UnityEvent onStopped = new UnityEvent();
 
 		private Timer timer = null;
 
@@ -48,7 +53,7 @@ namespace Mochineko.Pomodoro
 			if (timer == null)
 			{
 				StartTimer();
-
+				
 				switchText.text = "Stop";
 			}
 			else
@@ -68,12 +73,16 @@ namespace Mochineko.Pomodoro
 			}
 
 			timer = new Timer(SpanMinutes);
+
+			onStarted?.Invoke();
 		}
 
 		public void StopTimer()
 		{
 			timer.Dispose();
 			timer = null;
+
+			onStopped?.Invoke();
 		}
 
 		private void Start()
@@ -90,6 +99,7 @@ namespace Mochineko.Pomodoro
 
 			if (timer.IsOver)
 			{
+				onFinished?.Invoke();
 				StopTimer();
 				switchText.text = "Start";
 				DisplaySpanMinutes();

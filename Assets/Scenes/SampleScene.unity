@@ -132,11 +132,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Timer
       objectReference: {fileID: 0}
-    - target: {fileID: 2055738751465981577, guid: 6147124f12839fe4e9e1f9c901433a31,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2055738751465981583, guid: 6147124f12839fe4e9e1f9c901433a31,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -241,16 +236,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2055738750900740113, guid: 6147124f12839fe4e9e1f9c901433a31,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 200
-      objectReference: {fileID: 0}
-    - target: {fileID: 2055738750900740112, guid: 6147124f12839fe4e9e1f9c901433a31,
-        type: 3}
-      propertyPath: m_Color.r
-      value: 0.972549
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6147124f12839fe4e9e1f9c901433a31, type: 3}

@@ -7,7 +7,7 @@ namespace Mochineko.Pomodoro
 		private readonly TimeSpan span;
 		private readonly System.Diagnostics.Stopwatch stopwatch;
 
-		private readonly TimeSpan OneSecond
+		private static readonly TimeSpan OneSecond
 			= new TimeSpan(hours: 0, minutes: 0, seconds: 1);
 
 		public Timer(TimeSpan span)
