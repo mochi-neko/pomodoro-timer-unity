@@ -1,0 +1,19 @@
+{
+    "name": "Mochineko.Pomodoro.Tests",
+    "references": [
+        "GUID:58b0e9998a1b57d48a8ff0ce3920ced7"
+    ],
+    "optionalUnityReferences": [
+        "TestAssemblies"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": []
+}
