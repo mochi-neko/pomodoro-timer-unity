@@ -26,6 +26,12 @@ namespace Mochineko.Pomodoro
 
 		private PomodoroTimer timer;
 
+		[SerializeField]
+		private Text currentTaskCountText;
+		[SerializeField]
+		private Text totalTaskCountText;
+		private int totalTaskCount = 0;
+
 		private TimeSpan TaskSpan
 			=> new TimeSpan(hours: 0, minutes: taskMinutes, seconds: 0);
 		private TimeSpan RestSpan
@@ -53,7 +59,14 @@ namespace Mochineko.Pomodoro
 		}
 
 		private void InvokeOnBeginTask()
-			=> onBeginTask?.Invoke();
+		{
+			currentTaskCountText.text = timer.TaskCount.ToString();
+
+			totalTaskCount++;
+			totalTaskCountText.text = totalTaskCount.ToString();
+
+			onBeginTask?.Invoke();
+		}
 
 		private void InvokeOnBeginRest()
 			=> onBeginRest?.Invoke();
@@ -69,6 +82,7 @@ namespace Mochineko.Pomodoro
 			timer = null;
 
 			DisplayTaskTimeText();
+			currentTaskCountText.text = "0";
 
 			onStop?.Invoke();
 		}

@@ -11,9 +11,9 @@ namespace Mochineko.Pomodoro
 		//private readonly TimeSpan longRestSpan;
 
 		private Timer timer;
-		private bool isTasking;
-		public bool IsTasking => isTasking;// for test
-		//private int taskCount;
+
+		public bool IsTasking { get; private set; }
+		public int TaskCount { get; private set; }
 
 		//private readonly int longRestInterval;
 
@@ -28,8 +28,8 @@ namespace Mochineko.Pomodoro
 			//this.longRestSpan = longRestSpan;
 			//this.longRestInterval = longRestInterval;
 
-			isTasking = true;
-			//taskCount = 1;
+			IsTasking = true;
+			TaskCount = 1;
 			timer = new Timer(taskSpan);
 		}
 
@@ -43,13 +43,13 @@ namespace Mochineko.Pomodoro
 				timer.Dispose();
 			}
 
-			isTasking = !isTasking;
+			IsTasking = !IsTasking;
 
-			if (isTasking)
+			if (IsTasking)
 			{
 				timer = new Timer(taskSpan);
 
-				//taskCount++;
+				TaskCount++;
 				OnBeginTask?.Invoke();
 			}
 			//else if (taskCount >= longRestInterval)
@@ -90,7 +90,7 @@ namespace Mochineko.Pomodoro
 			timer.Dispose();
 			timer = null;
 
-			//taskCount = 0;
+			TaskCount = 0;
 		}
 	}
 }
