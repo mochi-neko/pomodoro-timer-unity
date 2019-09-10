@@ -10,7 +10,7 @@ namespace Mochineko.Pomodoro.Tests
 		[TestCase(3)]
 		[TestCase(2)]
 		[TestCase(1)]
-		public async void TimeTest(int milliseconds)
+		public async void TimeOverTest(int milliseconds)
 		{
 			var span = new System.TimeSpan(
 				days: 0, hours: 0, minutes: 0, seconds: 0,
