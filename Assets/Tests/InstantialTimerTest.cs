@@ -4,8 +4,8 @@ using NUnit.Framework;
 
 namespace Mochineko.Pomodoro.Tests
 {
-	[TestFixture(TestOf = typeof(Timer))]
-	public class TimerTest
+	[TestFixture(TestOf = typeof(InstantialTimer))]
+	public class InstantialTimerTest
 	{
 		[TestCase(3)]
 		[TestCase(2)]
@@ -16,7 +16,7 @@ namespace Mochineko.Pomodoro.Tests
 				days: 0, hours: 0, minutes: 0, seconds: 0,
 				milliseconds: milliseconds);
 
-			using (var timer = new Timer(span))
+			using (var timer = new InstantialTimer(span))
 			{
 				Assert.IsFalse(timer.IsOver);
 
@@ -31,17 +31,17 @@ namespace Mochineko.Pomodoro.Tests
 		{
 			Assert.DoesNotThrow(() =>
 			{
-				new Timer(new System.TimeSpan(1));
+				new InstantialTimer(new System.TimeSpan(1));
 			});
 
 			Assert.Throws<System.ArgumentOutOfRangeException>(() =>
 			{
-				new Timer(new System.TimeSpan(0));
+				new InstantialTimer(new System.TimeSpan(0));
 			});
 
 			Assert.Throws<System.ArgumentOutOfRangeException>(() =>
 			{
-				new Timer(new System.TimeSpan(-1));
+				new InstantialTimer(new System.TimeSpan(-1));
 			});
 		}
 	}

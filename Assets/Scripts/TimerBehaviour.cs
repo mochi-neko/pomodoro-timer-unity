@@ -27,7 +27,7 @@ namespace Mochineko.Pomodoro
 		public UnityEvent onFinished = new UnityEvent();
 		public UnityEvent onStopped = new UnityEvent();
 
-		private Timer timer = null;
+		private InstantialTimer timer = null;
 
 		private const string timeFormat = @"mm\:ss";
 
@@ -72,7 +72,7 @@ namespace Mochineko.Pomodoro
 				StopTimer();
 			}
 
-			timer = new Timer(SpanMinutes);
+			timer = new InstantialTimer(SpanMinutes);
 
 			onStarted?.Invoke();
 		}
@@ -107,7 +107,7 @@ namespace Mochineko.Pomodoro
 				return;
 			}
 
-			remaiginTime.text = timer.RemainingRoundedUp.ToString(timeFormat);
+			remaiginTime.text = timer.RemainingSecoundsRoundedUp.ToString(timeFormat);
 		}
 	}
 }

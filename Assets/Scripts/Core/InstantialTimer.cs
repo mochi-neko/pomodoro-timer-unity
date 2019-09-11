@@ -2,7 +2,7 @@
 
 namespace Mochineko.Pomodoro
 {
-	public class Timer : IDisposable
+	public class InstantialTimer : IDisposable
 	{
 		private readonly TimeSpan span;
 		private readonly System.Diagnostics.Stopwatch stopwatch;
@@ -10,7 +10,7 @@ namespace Mochineko.Pomodoro
 		private static readonly TimeSpan OneSecond
 			= new TimeSpan(hours: 0, minutes: 0, seconds: 1);
 
-		public Timer(TimeSpan span)
+		public InstantialTimer(TimeSpan span)
 		{
 			if (span.Ticks <= 0)
 			{
@@ -29,10 +29,8 @@ namespace Mochineko.Pomodoro
 		private TimeSpan Remaining
 			=> span.Subtract(Elapsed);
 
-		public TimeSpan RemainingRoundedUp
-			=> span
-				.Subtract(Elapsed)
-				.Add(OneSecond);
+		public TimeSpan RemainingSecoundsRoundedUp
+			=> Remaining.Add(OneSecond);
 
 		public bool IsOver
 			=> Remaining.Ticks < 0;

@@ -10,7 +10,7 @@ namespace Mochineko.Pomodoro
 		private readonly TimeSpan restSpan;
 		//private readonly TimeSpan longRestSpan;
 
-		private Timer timer;
+		private InstantialTimer timer;
 
 		public bool IsTasking { get; private set; }
 		public int TaskCount { get; private set; }
@@ -30,11 +30,11 @@ namespace Mochineko.Pomodoro
 
 			IsTasking = true;
 			TaskCount = 1;
-			timer = new Timer(taskSpan);
+			timer = new InstantialTimer(taskSpan);
 		}
 
 		public TimeSpan RemainingRoundedUp
-			=> timer.RemainingRoundedUp;
+			=> timer.RemainingSecoundsRoundedUp;
 
 		private void BeginNewSpan()
 		{
@@ -47,7 +47,7 @@ namespace Mochineko.Pomodoro
 
 			if (IsTasking)
 			{
-				timer = new Timer(taskSpan);
+				timer = new InstantialTimer(taskSpan);
 
 				TaskCount++;
 				OnBeginTask?.Invoke();
@@ -60,7 +60,7 @@ namespace Mochineko.Pomodoro
 			//}
 			else
 			{
-				timer = new Timer(restSpan);
+				timer = new InstantialTimer(restSpan);
 
 				OnBeginRest?.Invoke();
 			}
